@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>25C8F389-774B-4FD9-9B6A-F03079B9740A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Babo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D900ECBF-3CB8-4437-82D2-53416B42F9CC</key>
+		<string>https://github.com/onurakpolat/Babo.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Babo.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D900ECBF-3CB8-4437-82D2-53416B42F9CC</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/onurakpolat/Babo.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D900ECBF-3CB8-4437-82D2-53416B42F9CC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D900ECBF-3CB8-4437-82D2-53416B42F9CC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Babo</string>
+		</dict>
+	</array>
+</dict>
+</plist>
