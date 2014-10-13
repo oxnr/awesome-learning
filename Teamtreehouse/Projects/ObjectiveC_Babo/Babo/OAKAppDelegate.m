@@ -16,8 +16,8 @@
     // Extend Splash Screen Time
     [NSThread sleepForTimeInterval:1.5];
     
-    [Parse setApplicationId:@"oAy0GfHolqDB7JQw1AaT57aLVzSUxy2kdIJmPJpt"
-                  clientKey:@"USdnbf7ZJxn8UJ7Td1Idx3RIpPnnb46e2W1XSkSa"];
+    [Parse setApplicationId:@""
+                  clientKey:@""];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     // Style Navigation Controller
