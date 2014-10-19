@@ -1,0 +1,131 @@
+---
+title: "MMDS Quiz Week 1"
+author: "Onur Akpolat"
+output: html_document
+---
+
+Mining of Massive Datasets Quiz Week 1
+---
+
+## Question 1
+Consider three Web pages with the following links:
+
+![Network 1](figures/quiz_week1_img1.gif)
+
+Suppose we compute PageRank with a $\beta$ of 0.7, and we introduce the additional constraint that the sum of the PageRanks of the three pages must be 3, to handle the problem that otherwise any multiple of a solution will also be a solution. Compute the PageRanks a, b, and c of the three pages A, B, and C, respectively.
+
+Note that this graph contains no 'Dead Ends' but a single 'Spider Trap' (node C).
+
+### Solution
+
+The transition matrix for the graph is:
+```{r}
+beta <- 0.7
+M <- matrix(c(0,0.5,0.5, 0,0,1, 0,0,1), nrow = 3, ncol = 3, byrow = FALSE, dimnames = list(c("A", "B", "C"),c("A", "B", "C")))
+M
+```
+
+PageRank for node $j$ is calculated as:
+$$r_{j} = \sum_{i \to j}\beta\frac{r_i}{d_i} + (1-\beta)\frac{1}{n}$$
+where $d_i$ is the out-degree of node $i$. The same expressed in matrix formulation:
+$$A=\beta M + (1-\beta)\frac{1}{n}e \cdot e^{T}$$
+where $n$ is the number of nodes and $e$ is an unit vector of length $n$.
+
+This calculation assumes that $M$ is stochastic, aperiodic and irreducible. $A$ is also called the Google matrix.
+
+The actural computation of the pageRank is a iterative process where
+for each iteration we calculate $r_{new} = A \cdot r_{old}$ untill it converges
+
+```{r}
+n <- 3 ## number of nodes
+init <- rep(1/n, n)
+rank_old <- init
+epsilon <- 0.00005
+
+for(iter in 1:100) {
+  rank <- ((beta * M) %*% rank_old) + ((1-beta) * rep(1/n, n))
+  print(paste('iteration', iter))
+  print(rank)
+  if(sum(abs(rank-rank_old)) < epsilon) {break}
+  rank_old <- rank
+}
+```
+
+And because there is the constraint that the sum of the PageRanks of the three pages must be 3 we multipli the resualt with 3 to get the final solution to the question.
+```{r}
+solution1 <- rank*3
+solution1
+```
+
+
+## Question 2
+Consider three Web pages with the following links:
+
+![Network 2](figures/quiz_week1_img2.gif)
+
+Suppose we compute PageRank with $\beta$=0.85. Write the equations for the PageRanks a, b, and c of the three pages A, B, and C, respectively.
+
+Note that this graph don't contains 'Dead Ends' or 'Spider Traps'.
+
+### Solution
+
+The transition matrix for the graph is:
+```{r}
+beta <- 0.85
+M <- matrix(c(0,0.5,0.5, 0,0,1, 1,0,0), nrow = 3, ncol = 3, byrow = FALSE, dimnames = list(c("A", "B", "C"),c("A", "B", "C")))
+M
+```
+
+I will use the same technique as in question 1.
+```{r}
+n <- 3 ## number of nodes
+init <- rep(1/n, n)
+rank_old <- init
+epsilon <- 0.00005
+
+for(iter in 1:100) {
+  rank <- ((beta * M) %*% rank_old) + ((1-beta) * rep(1/n, n))
+  print(paste('iteration', iter))
+  print(rank)
+  if(sum(abs(rank-rank_old)) < epsilon) {break}
+  rank_old <- rank
+}
+```
+
+
+## Question 3
+Consider three Web pages with the following links:
+
+![Network 2](figures/quiz_week1_img2.gif)
+
+Assuming no "taxation," compute the PageRanks a, b, and c of the three pages A, B, and C, using iteration, starting with the "0th" iteration where all three pages have rank a = b = c = 1. Compute as far as the 5th iteration, and also determine what the PageRanks are in the limit. 
+
+### Solution
+
+The graph and therefore the transition matrix is the same as for question 2:
+```{r}
+M <- matrix(c(0,0.5,0.5, 0,0,1, 1,0,0), nrow = 3, ncol = 3, byrow = FALSE, dimnames = list(c("A", "B", "C"),c("A", "B", "C")))
+M
+```
+
+The constrain in this question is that there is no 'tax-ation', so we need to calculate the rank without $\beta$.
+We also have to save the 5'th iteration.
+
+```{r}
+n <- 3 ## number of nodes
+init <- rep(1, n)
+rank_old <- init
+epsilon <- 0.00005
+
+for(iter in 1:100) {
+  rank <- M %*% rank_old
+  print(paste('iteration', iter))
+  print(rank)
+  
+  if(iter == 5) {iter_5 <- rank}
+  
+  if(sum(abs(rank-rank_old)) < epsilon) {break}
+  rank_old <- rank
+}
+```
+

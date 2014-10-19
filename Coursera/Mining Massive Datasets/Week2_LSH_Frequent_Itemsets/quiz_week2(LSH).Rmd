@@ -1,0 +1,125 @@
+---
+title: "MMDS Quiz Week 2 (LSH)"
+author: "Onur Akpolat"
+output: html_document
+---
+
+Mining of Massive Datasets Quiz Week 2 part 1
+---
+
+## Question 1
+The edit distance is the minimum number of character insertions and character deletions required to turn one string into another. Compute the edit distance between each pair of the strings he, she, his, and hers.
+
+### Solution
+The edit distance can also be calculated as d(x,y) = |x| + |y| - 2|LCS(x,y)|, where LSC(x,y) is the longest common subsequence between x and y.
+Between the four strings are there $\binom{4}{2}$ possible pairs, which is `r choose(4,2)` pairs.
+
+R have one package (that I know of) [TraMineR](http://cran.r-project.org/web/packages/TraMineR/index.html) that can caluclate longest common subsequence of strings
+
+```{r}
+library(TraMineR)
+strings <- c('he', 'she', 'his', 'hers')
+
+## calculate LCS between strings with the TraMineR library
+strings2 <- c('h-e', 's-h-e', 'h-i-s', 'h-e-r-s')
+LCS <- seqdef(strings2)
+
+for(i in 1:(length(strings)-1)) {
+  for(j in (i+1):length(strings)) {
+    edit_dist <- nchar(strings[i]) + nchar(strings[j]) - 2*seqLLCS(LCS[i,], LCS[j,])
+    print(paste0("edit distance between '", strings[i], "' and '", strings[j], "' is: ", edit_dist))
+  }
+}
+```
+
+
+## Question 2
+Consider the following matrix:
+```{r, echo=FALSE}
+matrix <- data.frame(C1 = c(0,1,0,0,1,0),
+                     C2 = c(1,0,1,0,0,1),
+                     C3 = c(1,1,0,1,1,0),
+                     C4 = c(0,1,1,0,0,0))
+rownames(matrix) <- c("R1", "R2", "R3", "R4", "R5", "R6")
+matrix
+```
+Perform a minhashing of the data, with the order of rows: R4, R6, R1, R3, R5, R2.
+
+### Solution
+
+
+
+
+## Question 3
+
+### Solution
+
+
+
+
+## Question 4
+
+### Solution
+```{r}
+library(ngram)
+str <- "A B R A C A D A B R A"
+ng <- ngram(str, n=2)
+ng
+get.ngrams(ng)
+
+str2 <- "B R I C A B R A C"
+ng2 <- ngram(str2, n=2)
+ng2
+get.ngrams(ng2)
+
+sum(get.ngrams(ng) %in% get.ngrams(ng2))
+
+sum(unique(get.ngrams(ng)) %in% unique(get.ngrams(ng2)))
+length(unique(c(get.ngrams(ng),get.ngrams(ng2))))
+
+
+library(sets)
+x <- c("A","B","R","A","C","A","D","A","B","R","A")
+y <- c("B","R","I","C","A","B","R","A","C")
+
+sum(unique(x) %in% unique(y))
+length(unique(c(x,y)))
+
+set_similarity(x, y, method = "Jaccard")
+
+```
+
+
+## Question 5
+
+### Solution
+
+```{r}
+point1 <- c(0,0)
+point2 <- c(100,40)
+
+t1 <- c(61,10)
+
+L1_dist_p1 <- abs(point1[1]-t1[1]) + abs(point1[2]-t1[2])
+L1_dist_p1
+L1_dist_p2 <- abs(point2[1]-t1[1]) + abs(point2[2]-t1[2])
+L1_dist_p2
+
+L2_dist_p1 <- sqrt((point1[1]-t1[1])^2 + (point1[2]-t1[2])^2)
+L2_dist_p1
+L2_dist_p2 <- sqrt((point2[1]-t1[1])^2 + (point2[2]-t1[2])^2)
+L2_dist_p2
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
