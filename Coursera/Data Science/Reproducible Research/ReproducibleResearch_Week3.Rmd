@@ -37,6 +37,53 @@ Stay concise
 
 Link to supplementary materials
 
+## Do: Start with Good Science
+
+Garbage in, garbage out
+
+Cohorent, focused question
+
+Working with good collaborators
+
+Something that's interesting to you will motivate good habits
+
+## DO: Tech a computer
+
+* If something needs to be done as part of your analysis
+* In order to give your computer instructions you need to write code
+* Teaching a computer almost guarantees reproducibility
+
+## DO: Use some version control
+
+* Slow things down
+* Add changes in small chunks
+* track snapshots; revert to old versions
+* Software like Git etc.
+
+## DON'T: Do things by hand
+
+* Editing spreadsheets of data to "clean it up"
+* Editing tables or figures
+* Downloading data from web
+* Moving data around your computer
+
+Things done by hand need to be precisely documented
+
+## DON'T: Point and click
+
+* Many data processing / statistical analysis have guis
+* GUIs are convenient, but the actions are difficult to reproduce
+* Some GUIs produce log file or script with equivlent commands
+* In general, be careful with dat analysis software that is "highly" interactive
+* Other interaction software, such as text editors are usually fine
+
+## DON'T: Save Output
+
+* Avoid saving data analysis output
+* If a stray output file cannot be easily connected with the means by which it was created, it's not reproducible
+* Save the data + code that generated the output
+* Intermediate files are okay as there is clear docs
+
 ```{r}
 tbd
 ```
