@@ -3,10 +3,40 @@ title: "ReproducibleResearch_Week3.Rmd"
 output: html_document
 ---
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+## Hierarchy of Information
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+* Title / Author list
+* Abstract
+* Body / Results
+* Supplementary Materials / the gory details
+* Code / Data / really gory details
+
+## E-Mail presentation
+
+#### Subject line
+
+At a minimum; include one
+
+Can you summarize findings in one sentence
+
+#### E-Mail body
+
+Brief description of the problem
+
+If action needs to be taken make suggestions
+
+If question needs to be adressed, try to make them
+
+#### E-Mail presentation
+
+R Markdown file
+
+knitr report
+
+Stay concise
+
+Link to supplementary materials
 
 ```{r}
-summary(cars)
+tbd
 ```
