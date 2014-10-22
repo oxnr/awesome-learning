@@ -74,6 +74,34 @@ Disadvantages
 * Automatic categorization (work, friends, family, hobby)
 * Weather categorization (sunny, cloudy, rain, snow)
 
+## Regularization
+
+Problem of underfitting and high bias (linear regression)
+
+Problem of overfitting and high variance (high order polynomio functions)
+
+### Overfitting
+
+If we have too many features, the learned hyptohesis may fit training set very well, but fail to generalize to new exampes (predict prices on new exampes)
+
+#### Addressing overfitting
+
+1. Reduce number of features
+
+* Manually select which features to keep
+* Model selection algorithm
+
+2. Regularization
+
+* Keep all the features, but reduce magnitude/values of parameters 0j
+* Works well when we have a lot of features, each of which contributes a bit to predicting y
+
+Small values for parameters, correspond in having a **simpler hypothesis**
+
+
+
+
+
 
 
 
