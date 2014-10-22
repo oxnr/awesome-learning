@@ -5,7 +5,7 @@
   Linear regression with one variable aka. Univariate linear regression.
     Goal is to minimize cost function -> Gradient descent (optimize local minimum)
 
-  Classification: Discrede valued output (0 or 1).
+  Classification: Discrete valued output (0 or 1).
 
 2. Unsupervised learning (the computer learns itself)
   Clustering: Clustering news or market segments
@@ -25,3 +25,59 @@ A range between -3 and 3  or -1/3 and 1/3 seems ok
 ## Mean normalization
 
 Make features have approximately 0 mean
+
+## Classification with Logistic regression
+
+Predict a discrete valued variable (0[negative] or 1[positive])
+
+Linear regression not suitable for several reasons (i.e. h0(x) can be > 1 or < 0)
+
+Logistic regression is one of the most popular techniques which suits this kind of problem
+
+Logistic regression is a classification algorithm
+
+### Hypothesis representation
+
+Logistic regression wants 0 <= h0(x) <= 1
+
+Based on Sigmoid function aka. logistic function
+
+#### Interpretation of Hypothesis output
+
+h0(x) = estimated probability that y = 1 on input x
+
+h0(x) = 0.7
+
+Chance of 70% of beeing positive (1)
+
+Probability that y = 0 + y = 1 must add up to 1
+
+### Optimization algorithms
+
+* Gradient descent
+
+* Conjugate gradient
+* BFGS
+* L-BFGS
+
+Advantages
+
+* No need to manually pick alpha (clever inner-loop)
+* Converge often fast than gradient descent
+
+Disadvantages
+
+* More complex
+
+### Multiclass classification
+
+* Automatic categorization (work, friends, family, hobby)
+* Weather categorization (sunny, cloudy, rain, snow)
+
+
+
+
+
+
+
+
