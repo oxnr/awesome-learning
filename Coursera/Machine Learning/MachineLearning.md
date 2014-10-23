@@ -98,10 +98,13 @@ If we have too many features, the learned hyptohesis may fit training set very w
 
 Small values for parameters, correspond in having a **simpler hypothesis**
 
+## Neuronal Networks
 
+Complex non-linear hypothesis become to complex and big when n is large
 
+Neuronal networks was originally motivated by the goal of having algorithms mimic the brain
 
-
+The "one learning algorithm" hypothesis like different cortex in the brain
 
 
 
