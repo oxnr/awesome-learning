@@ -351,10 +351,39 @@ Key idea: monotonicity: if a set of items appears at least s times, so does ever
 
 Contrapositive for pairs: if them i does not appear in s basket, then no pair including i can appear in s baskets
 
-### Monotonicity of "Frequent"
+## Topics
 
-### Candidate Pairs
+### Community Detection
 
-### Extension to Larger Itemsets
+#### Affiliation graph model (AGM)
 
+### BigCLAM
+
+## Collection
+
+Nereast neighbor
+k-means
+Decsision trees
+SVD
+PCA
+MapReduce
+Link Analysis -- PageRank
+Locality-Sensitive Hashing -- Basics + Applications
+Distance Measures
+Nearest Neighbors
+Frequent Itemsets
+Data Stream Mining
+Analysis of Large Graphs
+Recommender Systems
+Dimensionality Reduction
+CUR Decomposition
+Clustering
+BFR Algorithm
+CURE Algortihm
+Computational Advertising
+Support-Vector Machines
+Decision Trees
+MapReduce Algorithms
+More About Link Analysis --  Topic-specific PageRank, Link Spam.
+More About Locality-Sensitive Hashing
 
