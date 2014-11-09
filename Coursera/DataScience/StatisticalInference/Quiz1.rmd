@@ -36,6 +36,10 @@ p/(1-p) = Y/X
 
 A density that looks like a normal density (but may or may not be exactly normal) is exactly symmetric about zero. (Symmetric means if you flip it around zero it looks the same.) What is its median? 
 
+```
+The median must be 0.
+```
+
 ### Question 5
 
 Consider the following PMF shown below in R
