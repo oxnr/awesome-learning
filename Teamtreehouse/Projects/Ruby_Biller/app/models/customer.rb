@@ -1,3 +1,3 @@
-class Customer < ActiveRecord::Base
-	has_many :time_entries
+class Customer < Account
+  has_many :time_entries
 end
