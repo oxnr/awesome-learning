@@ -1,10 +1,3 @@
-## Requirements
-
-Simplicity
-Interpretability
-Accuracy
-Scalability
-Fast / Speed
 # Week 1
 
 ## Overview
@@ -12,6 +5,14 @@ Fast / Speed
 Signal (what you want to predict) vs. noise (random variation in data set)
 Goal = find signal and ignore noise
 Problem of overfitting when creating a perfect in-sample prediction
+
+## Requirements
+
+Simplicity
+Interpretability
+Accuracy
+Scalability
+Fast / Speed
 
 ## Prediction design
 
