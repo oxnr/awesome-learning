@@ -1,0 +1,75 @@
+---
+title: "Statistical Inference Course Project | Part 2"
+author: "Onur Akpolat"
+date: "22. November 2014"
+output:
+  html_document
+---
+
+#### 1. Load the ToothGrowth data and perform some basic exploratory data analyses.
+
+```{r loading, echo=TRUE}
+library(datasets)
+x <- ToothGrowth
+# convert dose to factor
+x$dose <- as.factor(x$dose)
+```
+
+```{r exploratory, fig.height=3, fig.width=6, echo=TRUE}
+str(x)
+table(x$dose, x$supp)
+library(ggplot2)
+ggplot(data=x, aes(x=dose, y=len, fill=supp)) + geom_bar(stat="identity",) + facet_grid(. ~ supp) + xlab("Dose in miligrams") + ylab("Tooth length") + guides(fill=guide_legend(title="Supplement type"))
+ggplot(aes(x=dose, y=len), data=x) + geom_boxplot(aes(fill=dose)) + xlab("Dose in miligrams") + ylab("Tooth length") + guides(fill=guide_legend(title="Dose"))
+ggplot(aes(x=supp, y=len), data=x) + geom_boxplot(aes(fill=supp)) + xlab("Supplement type") + ylab("Tooth length") + guides(fill=guide_legend(title="Supplement type"))
+```
+
+#### 2. Provide a basic summary of the data.
+
+```{r summary, echo=TRUE}
+summary(x)
+```
+
+#### 3. Use confidence intervals and/or hypothesis tests to compare tooth growth by supp and dose. (Only use the techniques from class, even if there's other approaches worth considering).
+
+```{r confInterval, echo=TRUE}
+t.test(len ~ supp, data = x)
+```
+
+Null hypothesis can not be rejected as confindence intervals contain zero and p-value is 0.06.
+
+Supplement types seems to have no impact on Tooth growth.
+
+
+```{r tests, echo=TRUE}
+# three groups as per dose level pairs
+x.doses_0.5_1.0 <- subset (x, dose %in% c(0.5, 1.0)) 
+x.doses_0.5_2.0 <- subset (x, dose %in% c(0.5, 2.0)) 
+x.doses_1.0_2.0 <- subset (x, dose %in% c(1.0, 2.0)) 
+
+# Check for dose levels (0.5, 1.0)
+t.test(len ~ dose, data = x.doses_0.5_1.0)
+
+# Check for dose levels (0.5, 2.0)
+t.test(len ~ dose, data = x.doses_0.5_2.0)
+
+# Check for dose levels (1.0, 2.0)
+t.test(len ~ dose, data = x.doses_1.0_2.0)
+```
+
+The p-value is less than 0.05 and confindence intervals don't contian 0. The average toot length increases with an inceasing dose. The null hypothesis can be rejected.
+
+#### 4. State your conclusions and the assumptions needed for your conclusions.
+
+Conclusions
+
+1. Supplement type seem to have no impact on tooth growth.
+2. Inreasing the dose level leads to increased tooth growth as well.
+
+Assumptions
+
+1. The experiment was done with random assignment of guinea pigs to different dose level categories and supplement type to control for confounders that might affect the outcome.
+
+2. Members of the sample population, i.e. the 60 guinea pigs, are representative of the entire population of guinea pigs. This assumption allows us to generalize the results.
+
+3. For the t-tests, the variances are assumed to be different for the two groups being compared. This assumption is less stronger than the case in which the variances are assumed to be equal.
