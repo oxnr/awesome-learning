@@ -407,4 +407,4 @@ table(predict(modFit,training),training$Species)
 ```
 testClusterPred <- predict(modFit,testing) 
 table(testClusterPred ,testing$Species)
-``
+```
